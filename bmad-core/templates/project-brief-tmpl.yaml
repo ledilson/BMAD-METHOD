@@ -11,6 +11,8 @@ template:
 workflow:
   mode: interactive
   elicitation: advanced-elicitation
+  language_instructions: |
+    LANGUAGE ADAPTATION: Check core-config.yaml for user_language setting. If user_language is set to any value other than 'en', generate ALL content in the specified language. This includes: section titles, instructions, document content, examples, and user interactions. Keep technical terms and file names in their original form when appropriate.
   custom_elicitation:
     title: "Project Brief Elicitation Actions"
     options:

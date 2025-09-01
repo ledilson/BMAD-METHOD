@@ -288,6 +288,11 @@ class FileManager {
         coreConfig.architecture.architectureSharded = config.architectureSharded;
       }
 
+      // Modify user language if provided
+      if (config.userLanguage !== undefined) {
+        coreConfig.user_language = config.userLanguage;
+      }
+
       // Write back the modified config
       await fs.writeFile(coreConfigPath, yaml.dump(coreConfig, { indent: 2 }));
 

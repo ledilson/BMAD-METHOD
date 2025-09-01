@@ -1,5 +1,6 @@
 # <!-- Powered by BMAD™ Core -->
 markdownExploder: true
+user_language: en
 qa:
   qaLocation: docs/qa
 prd:

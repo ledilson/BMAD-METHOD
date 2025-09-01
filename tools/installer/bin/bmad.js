@@ -371,6 +371,42 @@ async function promptInstallation() {
         process.exit(0);
       }
     }
+
+    // Ask for language preference
+    console.log(chalk.cyan('\n🌍 Language Configuration'));
+    console.log(
+      chalk.dim('Configure your preferred language for BMAD agents and documentation.\n'),
+    );
+
+    const { userLanguage } = await inquirer.prompt([
+      {
+        type: 'list',
+        name: 'userLanguage',
+        message: 'Select your preferred language / Selecione seu idioma preferido:',
+        choices: [
+          {
+            name: 'English (default)',
+            value: 'en',
+          },
+          {
+            name: 'Português (Brasil)',
+            value: 'pt-BR',
+          },
+        ],
+        default: 'en',
+      },
+    ]);
+    answers.userLanguage = userLanguage;
+
+    if (userLanguage === 'pt-BR') {
+      console.log(chalk.green('\n✅ Configurando BMAD para português brasileiro'));
+      console.log(
+        chalk.dim('Os agentes responderão em português e gerarão documentos em português.'),
+      );
+    } else {
+      console.log(chalk.green('\n✅ Configuring BMAD for English'));
+      console.log(chalk.dim('Agents will respond in English and generate documents in English.'));
+    }
   }
 
   // Ask for IDE configuration

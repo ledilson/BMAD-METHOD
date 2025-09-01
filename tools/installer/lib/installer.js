@@ -413,12 +413,14 @@ class Installer {
       }
     }
 
-    // Modify core-config.yaml if sharding preferences were provided
+    // Modify core-config.yaml if sharding preferences or language were provided
     if (
       config.installType !== 'expansion-only' &&
-      (config.prdSharded !== undefined || config.architectureSharded !== undefined)
+      (config.prdSharded !== undefined ||
+        config.architectureSharded !== undefined ||
+        config.userLanguage !== undefined)
     ) {
-      spinner.text = 'Configuring document sharding settings...';
+      spinner.text = 'Configuring project settings...';
       await fileManager.modifyCoreConfig(installDir, config);
     }
 
